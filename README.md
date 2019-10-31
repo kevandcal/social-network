@@ -1,6 +1,6 @@
 # Social Network
 
-This social network is the first project that I built using React and the biggest project from my time as a student at [SPICED Academy](https://spiced.academy/program/full-stack-web-development/). It incorporates registration, login, image uploading, bio editing, sending and receiving friend requests, dynamic rendering of current friendships and pending friend requests, and a chat room.
+This social network is the first project that I built using React and the biggest project from my time as a student at [SPICED Academy](https://spiced.academy/program/full-stack-web-development/). It incorporates registration, login, image uploading, bio editing, searching for other members, sending and receiving friend requests, ending friendships, dynamic rendering of current friendships and pending friend requests, and a chat room. Because this project served as a way to learn React, it utilizes both class and functional components, and Redux is only used in part of it. The next project that I made ([Berlin Skate Map](https://github.com/thenightshadefamily/berlin-skate-map)) is more consistent in that it exclusively uses Hooks.
 
 ## Built with
 
@@ -20,7 +20,7 @@ HTML, CSS, React, Redux, Node.js (Express), Bundle.js, Moment.js, Socket.IO, Pos
 
 <img src="public/pictures/for-readme/social-network-3.png" width="80%" height="80%">
 
--   To add a profile picture, the user clicks either the small default profile pic in the upper right corner or the large one below to open a pop-up window (the same procedure can be used to update a existing profile pic):
+-   To add a profile picture, the user clicks either the small default profile pic in the upper right corner or the large one below to open a pop-up window (the same procedure can be used to update an existing profile pic):
 
 <img src="public/pictures/for-readme/social-network-4.png" width="80%" height="80%">
 
@@ -44,7 +44,7 @@ HTML, CSS, React, Redux, Node.js (Express), Bundle.js, Moment.js, Socket.IO, Pos
 
 <img src="public/pictures/for-readme/social-network-9.png" width="80%" height="80%">
 
--   So he goes to `Find People`, which lists the three people who have signed up most recently. (Since he is among the members shown here, he could click on himself, but that would simply redirect him to his own profile) Clicking on them will take him to their profile, where he can see their bio and click `Add Friend` if he so chooses:
+-   So he goes to `Find People`, which lists the three people who have signed up most recently. Clicking on any member other than himself (if he clicks on himself, he will simply be redirected to his own `My Profile`) will take him to their profile, where he can see their bio and click `Add Friend` if he so chooses:
 
 <img src="public/pictures/for-readme/social-network-10.png" width="80%" height="80%">
 
