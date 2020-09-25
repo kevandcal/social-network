@@ -1,9 +1,6 @@
 import React from "react";
 
 export default function ProfilePic(props) {
-    // console.log("profilepic.js props: ", props);
-    // console.log("imageurl: ", props.imageurl);
-    // let imageurl = props.imageurl || "img/default.png";
     return (
         <div>
             <img

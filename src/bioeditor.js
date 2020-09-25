@@ -23,10 +23,6 @@ export default class BioEditor extends React.Component {
     }
 
     handleChange(e) {
-        // console.log(
-        //     "bioeditor.js handleChange e.target.value: ",
-        //     e.target.value
-        // );
         this.setState({
             bio: e.target.value
         });

@@ -1,19 +1,7 @@
 // All functions here must return an action.
 import axios from "./axios";
 
-export function getCuteAnimals() {
-    // console.log("getCuteAnimals running!");
-    return axios.get("/cute-animals.json").then(({ data }) => {
-        console.log("data: ", data);
-        return {
-            type: "GET_ANIMALS",
-            cuteAnimals: data
-        };
-    });
-}
-
 export function getFriendsAndWannabes() {
-    // console.log("getCuteAnimals running!");
     return axios
         .get("/friends-wannabes")
         .then(({ data }) => {
@@ -45,7 +33,6 @@ export function acceptWannabe(id) {
 }
 
 export function removeFriend(id) {
-    // console.log("getCuteAnimals running!");
     console.log("removeFriend id in actions.js: ", id);
     return axios
         .post("/api/deletefriend/" + id)

@@ -1,12 +1,4 @@
 export default function reducer(state = {}, action) {
-    if (action.type === "GET_ANIMALS") {
-        // then change redux state (immutably!)
-        console.log("GET_ANIMALS in reducer: ", action);
-        state = {
-            ...state,
-            cuteAnimals: action.cuteAnimals
-        };
-    }
     if (action.type === "GET_FRIENDS_AND_WANNABES") {
         console.log("GET_FRIENDS_AND_WANNABES in reducer: ", action);
         const { friendsWannabes } = action;

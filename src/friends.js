@@ -41,8 +41,8 @@ export default function Friends() {
                         {wannabes && wannabes.length == 1
                             ? "You currently have 1 pending friend request:"
                             : `You currently have ${
-                                  wannabes.length
-                              } pending friend requests:`}
+                            wannabes.length
+                            } pending friend requests:`}
                     </h2>
                 )}
 

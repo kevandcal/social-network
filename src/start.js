@@ -9,15 +9,6 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import reducer from "./reducer";
 import { init } from "./socket";
 
-// const socket = io.connect();
-
-// socket.on("hi", ({ msg }) => {
-//     console.log(msg);
-//     socket.emit("howAreYou", {
-//         msg: "how are you?"
-//     });
-// });
-
 const store = createStore(
     reducer,
     composeWithDevTools(applyMiddleware(reduxPromise))
