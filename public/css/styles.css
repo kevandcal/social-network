@@ -1,7 +1,5 @@
 body {
     margin: 0 auto;
-    /* background-color: rgb(220, 220, 220); */
-    /* background-color: #00818a; */
     background-color: #216583;
     font-family: "Manjari", sans-serif;
 }
@@ -17,7 +15,6 @@ body {
 
 .users-container {
     width: 100%;
-    /* min-height: 70vh; */
     display: flex;
     flex-direction: column;
 }
@@ -40,7 +37,6 @@ body {
 }
 
 .users-list {
-    /* margin-top: 65px; */
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -52,7 +48,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
     margin: 30px;
 }
 
@@ -73,7 +68,6 @@ p,
 a {
     text-align: center;
     color: snow;
-    /* margin: 20px 10%; */
 }
 
 a {
@@ -89,21 +83,12 @@ a:active {
 }
 
 #closed-img {
-    /* position: absolute; */
-    /* top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0; */
-    /* height: 500px;
-    width: 500px; */
     text-align: center;
     height: 100vh;
     width: 100vh;
 }
 
 #dive-img {
-    /* height: 400px;
-    width: auto; */
     width: 50vw;
     height: auto;
 }
@@ -140,35 +125,26 @@ header {
     object-fit: cover;
     width: 50vw;
     height: auto;
-    /* height: 500px;
-    width: auto; */
 }
 
 header #profile-pic {
     object-fit: cover;
-    /* height: 100px;
-    width: 100px;*/
     padding: 15px;
     height: 15vh;
     width: 15vh;
-    /* padding-right: 15px; */
 }
 
 header #dive-img {
     object-fit: cover;
-    /* height: 100px;
-    width: 200px; */
     padding: 15px;
     height: 15vh;
     width: auto;
-    /* padding-left: 15px; */
 }
 
 #menu-bar {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* margin: 0 20px; */
     height: 40px;
     background-color: orange;
     cursor: default;
@@ -187,7 +163,6 @@ header #dive-img {
     text-decoration: none;
     margin-left: 10px;
     font-size: minmax(8px, 20px);
-    /* font-size: 4vw; */
 }
 
 .menu-bar-links.highlighted {
@@ -201,7 +176,6 @@ header #dive-img {
 }
 
 .menu-bar-links:hover {
-    /* color: rgb(100, 100, 100); */
     color: #216583;
 }
 
@@ -212,7 +186,6 @@ header #dive-img {
 }
 
 #app-js-body {
-    /* height: auto; */
     min-height: 70vh;
     display: flex;
     flex-direction: column;
@@ -231,9 +204,6 @@ header #dive-img {
 
 .bio-editor textarea {
     height: 100px;
-    /* width: 450px; */
-    /* min-width: 200px;
-    max-width: 600px; */
     width: 48vw;
     background-color: #216583;
     color: snow;
@@ -262,7 +232,6 @@ form {
 
 #welcome-text {
     font-size: 3.5vw;
-    /* margin-left:  */
 }
 
 #welcome-text-below-logo {
@@ -292,13 +261,9 @@ form {
 }
 
 button {
-    /* height: 30px;
-    width: 90px; */
     padding: 8px;
     border: 1px solid #293462;
     background-color: orange;
-    /* border: 2px solid orange;
-    background-color: #293462; */
     border-radius: 6px;
     font-size: 16px;
     color: snow;
@@ -306,10 +271,6 @@ button {
 }
 
 button:hover {
-    /* border: 2px solid #293462;
-    background-color: orange; */
-    /* border: 2px solid orange;
-    background-color: #293462; */
     background-color: #293462;
     border: 1px solid black;
     color: #216583;
@@ -368,9 +329,6 @@ input[type="file"] {
 
 .chat-messages {
     height: 350px;
-    /* width: 450px; */
-    /* min-width: 200px;
-    max-width: 600px; */
     width: 60vw;
     overflow-y: scroll;
     margin-top: 50px;
@@ -378,9 +336,6 @@ input[type="file"] {
 
 .chat-messages + textarea {
     height: 100px;
-    /* width: 450px; */
-    /* min-width: 200px;
-    max-width: 600px; */
     width: 58vw;
     background-color: #216583;
     color: snow;
@@ -409,12 +364,6 @@ input[type="file"] {
     padding: 13px 0 0 10px;
 }
 
-.chat-messages p {
-    /* display: inline; */
-    /* margin-left: 10px;
-    padding-bottom: 10px; */
-}
-
 .chat-names {
     color: orange;
 }
@@ -435,7 +384,3 @@ footer div {
     color: snow;
     padding: 10px 0 10px 20px;
 }
-
-/* main {
-    background-color: #d4c8c7;
-} */

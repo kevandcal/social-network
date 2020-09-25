@@ -18,11 +18,11 @@ const uidSafe = require("uid-safe");
 const path = require("path");
 
 const diskStorage = multer.diskStorage({
-    destination: function(req, file, callback) {
+    destination: function (req, file, callback) {
         callback(null, __dirname + "/uploads");
     },
-    filename: function(req, file, callback) {
-        uidSafe(24).then(function(uid) {
+    filename: function (req, file, callback) {
+        uidSafe(24).then(function (uid) {
             callback(null, uid + path.extname(file.originalname));
         });
     }
@@ -42,7 +42,7 @@ const cookieSessionMiddleware = cs({
 });
 
 app.use(cookieSessionMiddleware);
-io.use(function(socket, next) {
+io.use(function (socket, next) {
     cookieSessionMiddleware(socket.request, socket.request.res, next);
 });
 
@@ -52,7 +52,7 @@ app.use(csurf());
 
 app.use(express.static("./public"));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.cookie("mytoken", req.csrfToken());
     next();
 });
@@ -161,14 +161,9 @@ app.post("/login", (req, res) => {
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     const { filename } = req.file;
     const profilepic = config.s3Url + filename;
-    // const { profilepic } = req.body;
     console.log("POST /upload profilepic before db.uploadPic: ", profilepic);
     db.uploadPic(req.session.userId, profilepic)
         .then(results => {
-            // console.log(
-            //     "index.js POST /upload db.uploadPic then results: ",
-            //     results
-            // );
             res.json(results);
         })
         .catch(err => {
@@ -183,10 +178,6 @@ app.post("/bio", (req, res) => {
     console.log("index.js POST /bio req.body: ", req.body);
     db.updateBio(req.session.userId, req.body.bio)
         .then(results => {
-            // console.log(
-            //     "index.js POST /bio db.updateBio then results: ",
-            //     results[0].bio
-            // );
             res.json(results[0].bio);
         })
         .catch(err => {
@@ -235,7 +226,6 @@ app.get("/newestusers", (req, res) => {
 });
 
 app.get("/matchingusers/", (req, res) => {
-    // console.log("req.query in index.js GET /matchingusers/: ", req.query);
     db.getMatchingUsers(req.query.q)
         .then(results => {
             res.json(results);
@@ -269,10 +259,6 @@ app.get("/api/friends/:id", (req, res) => {
 app.post("/api/friendrequest/:id", (req, res) => {
     db.sendFriendRequest(req.session.userId, req.params.id)
         .then(results => {
-            // console.log(
-            //     "index.js POST /api/friendrequest/:id db.sendFriendRequest then results: ",
-            //     results[0]
-            // );
             res.json(results[0]);
         })
         .catch(err => {
@@ -286,10 +272,6 @@ app.post("/api/friendrequest/:id", (req, res) => {
 app.post("/api/deletefriend/:id", (req, res) => {
     db.deleteFriend(req.session.userId, req.params.id)
         .then(results => {
-            // console.log(
-            //     "index.js POST /api/deletefriend/:id db.deleteFriend then results: ",
-            //     results[0]
-            // );
             res.json(results[0]);
         })
         .catch(err => {
@@ -318,7 +300,6 @@ app.post("/api/acceptfriend/:id", (req, res) => {
 app.get("/friends-wannabes", (req, res) => {
     db.getFriendsAndWannabes(req.session.userId)
         .then(data => {
-            // console.log("GET /friends-wannabes then data: ", data);
             res.json({
                 ownUserId: req.session.userId,
                 friendsAndWannabes: data
@@ -361,7 +342,7 @@ app.get("/welcome", (req, res) => {
 
 /////// THIS ROUTE BELOW TO BE THE LAST ONE ////////
 
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
     if (
         !req.session.userId &&
         (req.url != "/welcome#/" || req.url != "/welcome#/login")
@@ -374,12 +355,12 @@ app.get("*", function(req, res) {
 
 /////// THIS ROUTE ABOVE TO BE THE LAST ONE ////////
 
-server.listen(8080, function() {
+server.listen(8080, function () {
     console.log("I'm listening.");
 });
 
 // SERVER-SIDE SOCKET CODE //
-io.on("connection", function(socket) {
+io.on("connection", function (socket) {
     console.log(`socket with the id ${socket.id} is now connected`);
     if (!socket.request.session.userId) {
         return socket.disconnect(true);

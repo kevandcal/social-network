@@ -7,7 +7,6 @@ import Logo from "./logo";
 import { BrowserRouter, Route } from "react-router-dom";
 import OtherProfile from "./otherprofile";
 import FindPeople from "./findpeople";
-import CuteAnimals from "./cute-animals";
 import Friends from "./friends";
 import Chat from "./chat";
 import MenuBar from "./menu-bar";
@@ -129,7 +128,6 @@ export default class App extends React.Component {
                             )}
                         />
                         <Route path="/findpeople" component={FindPeople} />
-                        <Route path="/cuteanimals" component={CuteAnimals} />
                         <Route path="/friends" component={Friends} />
                         <Route path="/chat" component={Chat} />
                         {this.state.uploaderIsVisible && (

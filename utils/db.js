@@ -1,8 +1,5 @@
 const spicedPg = require("spiced-pg");
 
-// const { dbuser, dbpass } = require("../secrets.json");
-// const db = spicedPg(`postgres:${dbuser}:${dbpass}@localhost:5432/petition`);
-
 let db;
 if (process.env.DATABASE_URL) {
     db = spicedPg(process.env.DATABASE_URL);
@@ -11,7 +8,7 @@ if (process.env.DATABASE_URL) {
     db = spicedPg(`postgres:${dbuser}:${dbpass}@localhost:5432/socialnetwork`);
 }
 
-exports.addUser = function(first, last, email, password) {
+exports.addUser = function (first, last, email, password) {
     return db
         .query(
             `INSERT INTO users (first, last, email, password)
@@ -24,7 +21,7 @@ exports.addUser = function(first, last, email, password) {
         });
 };
 
-exports.getPassword = function(email) {
+exports.getPassword = function (email) {
     return db
         .query(
             `SELECT id, password
@@ -37,7 +34,7 @@ exports.getPassword = function(email) {
         });
 };
 
-exports.getUserInfo = function(id) {
+exports.getUserInfo = function (id) {
     return db
         .query(
             `SELECT id, first, last, profilepic, bio
@@ -50,7 +47,7 @@ exports.getUserInfo = function(id) {
         });
 };
 
-exports.getNewestUsers = function() {
+exports.getNewestUsers = function () {
     return db
         .query(
             `SELECT id, first, last, profilepic
@@ -63,7 +60,7 @@ exports.getNewestUsers = function() {
         });
 };
 
-exports.getMatchingUsers = function(val) {
+exports.getMatchingUsers = function (val) {
     return db
         .query(
             `SELECT id, first, last, profilepic
@@ -77,7 +74,7 @@ exports.getMatchingUsers = function(val) {
         });
 };
 
-exports.uploadPic = function(id, profilePic) {
+exports.uploadPic = function (id, profilePic) {
     return db
         .query(
             `UPDATE users
@@ -91,7 +88,7 @@ exports.uploadPic = function(id, profilePic) {
         });
 };
 
-exports.updateBio = function(id, bio) {
+exports.updateBio = function (id, bio) {
     return db
         .query(
             `UPDATE users
@@ -105,7 +102,7 @@ exports.updateBio = function(id, bio) {
         });
 };
 
-exports.getFriendshipStatus = function(senderId, receiverId) {
+exports.getFriendshipStatus = function (senderId, receiverId) {
     return db
         .query(
             `SELECT *
@@ -119,7 +116,7 @@ exports.getFriendshipStatus = function(senderId, receiverId) {
         });
 };
 
-exports.sendFriendRequest = function(senderId, receiverId) {
+exports.sendFriendRequest = function (senderId, receiverId) {
     return db
         .query(
             `INSERT INTO friendships (sender_id, receiver_id)
@@ -132,7 +129,7 @@ exports.sendFriendRequest = function(senderId, receiverId) {
         });
 };
 
-exports.acceptFriendRequest = function(senderId, receiverId) {
+exports.acceptFriendRequest = function (senderId, receiverId) {
     return db.query(
         `UPDATE friendships
             SET accepted = true
@@ -141,7 +138,7 @@ exports.acceptFriendRequest = function(senderId, receiverId) {
     );
 };
 
-exports.deleteFriend = function(senderId, receiverId) {
+exports.deleteFriend = function (senderId, receiverId) {
     return db
         .query(
             `DELETE FROM friendships
@@ -154,7 +151,7 @@ exports.deleteFriend = function(senderId, receiverId) {
         });
 };
 
-exports.getFriendsAndWannabes = function(id) {
+exports.getFriendsAndWannabes = function (id) {
     return db
         .query(
             `SELECT users.id, first, last, profilepic, accepted
@@ -170,7 +167,7 @@ exports.getFriendsAndWannabes = function(id) {
         });
 };
 
-exports.getLastTenMessages = function() {
+exports.getLastTenMessages = function () {
     return db
         .query(
             `SELECT message, first, last, profilepic
@@ -185,7 +182,7 @@ exports.getLastTenMessages = function() {
         });
 };
 
-exports.addMessage = function(sender_id, msg) {
+exports.addMessage = function (sender_id, msg) {
     return db
         .query(
             `INSERT INTO chats (sender_id, message)
